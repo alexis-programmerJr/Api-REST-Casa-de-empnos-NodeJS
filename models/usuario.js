@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 
 const UsuarioSchema = mongoose.Schema({
-    Nombre: {
+    nombre: {
         type: String,
-        requiere: true
     },
-    Contrasena:{
+    contrasena:{
         type: String,
-        requiere:true
     },
-    Tipo:{
+    tipo:{
         type:String,
         requiere:true
     },

@@ -25,6 +25,15 @@ router.post('/', (req,res)=> {
        res.json({message:err}) 
     });
 });
+//Buscar por folio
+router.get('/:prestamoFolio', async (req,res)=>{
+    try{
+        const usuario = await Usuario.findOne({'folio':req.params.folio});
+        res.json(usuario);
+    }catch(err){
+        res.json({message: err})
+    }
+});
 //SPECIFIC POST
 router.get('/:prestamoId', async (req,res)=>{
     try{

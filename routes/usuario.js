@@ -13,8 +13,9 @@ router.get('/', async (req,res)=> {
 router.post('/', (req,res)=> {
     const usuario = new Usuario({
         nombre: req.body.nombre,
-        tipo: req.body.tipo,
-        contrasena: req.body.estatus,
+        contrasena: req.body.contrasena,
+        tipo: req.body.tipo
+
     });
     usuario.save()
     .then(data=>{
@@ -22,6 +23,15 @@ router.post('/', (req,res)=> {
     }).catch(err =>{
        res.json({message:err}) 
     });
+});
+//Buscar por nombre
+router.get('/:usuarioNombre', async (req,res)=>{
+    try{
+        const usuario = await Usuario.findOne({'nombre':req.params.usuarioNombre});
+        res.json(usuario);
+    }catch(err){
+        res.json({message: err})
+    }
 });
 //SPECIFIC POST
 router.get('/:usuarioId', async (req,res)=>{

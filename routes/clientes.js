@@ -25,6 +25,15 @@ router.post('/', (req,res)=> {
        res.json({message:err}) 
     });
 });
+//Buscar por nombre
+router.get('/:clienteNombre', async (req,res)=>{
+    try{
+        const usuario = await Usuario.findOne({'nombre':req.params.clienteNombre});
+        res.json(usuario);
+    }catch(err){
+        res.json({message: err})
+    }
+});
 //SPECIFIC POST
 router.get('/:clienteId', async (req,res)=>{
     try{
