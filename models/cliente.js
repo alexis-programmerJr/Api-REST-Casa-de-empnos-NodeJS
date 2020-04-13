@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const ClienteSchema = mongoose.Schema({
-    Nombre: {
-        type: Number,
-        requiere: true
+    nombre:{
+        type: String,
+        requiere:true
     },
-    Tipo:{
+    tipo:{
         type: String,
         requiere:true
     },

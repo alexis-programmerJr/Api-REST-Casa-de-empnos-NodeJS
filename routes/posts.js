@@ -23,7 +23,6 @@ router.post('/', (req,res)=> {
        res.json({message:err}) 
     });
 });
-
 //SPECIFIC POST
 router.get('/:postId', async (req,res)=>{
     try{
