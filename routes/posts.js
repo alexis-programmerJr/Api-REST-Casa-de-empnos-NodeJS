@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/post');
 
-router.get('/',(req,res)=> {
+router.get('/', async (req,res)=> {
     try{
-        const posts = Post.find();
-        res.json(posts)
+        const posts = await Post.find();
+        res.json(posts);
     }catch(err){
         res.json({message:err})
     }
 });
 //SUBMITS A POST
-router.post('/', async (req,res)=> {
+router.post('/', (req,res)=> {
     const post = new Post({
         title: req.body.title,
         description: req.body.description
@@ -25,9 +25,9 @@ router.post('/', async (req,res)=> {
 });
 
 //SPECIFIC POST
-router.get('/:postId',async (req,res)=>{
+router.get('/:postId', async (req,res)=>{
     try{
-        const post = Post.findById(req.params.postId);
+        const post = await Post.findById(req.params.postId);
         res.json(post);
     }catch(err){
         res.json({message: err})
@@ -36,7 +36,7 @@ router.get('/:postId',async (req,res)=>{
 //Delete Post
 router.delete('/:postId', async (req,res)=>{
     try{
-        const removePost = Post.remove({_id: req.params.postId});
+        const removePost = await Post.remove({_id: req.params.postId});
         res.json(removePost);
     }catch(err){
         res.json({message: err});
@@ -45,7 +45,7 @@ router.delete('/:postId', async (req,res)=>{
 });
 
 //Update a post 
-router.patch('/postId', async (req,res)=>{
+router.patch('/:postId', async (req,res)=>{
     try{
         const updatepost = await Post.updateOne(
             {_id:req.params.postId}
