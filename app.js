@@ -14,8 +14,12 @@ app.get('/',(req,res)=> {
 //Import rputers
 const postsRoute = require('./routes/posts');
 const clientesRoute = require('./routes/clientes');
+const PrestamosRoute = require('./routes/prestamo');
+const UsuariosRoute = require('./routes/usuario');
 app.use('/posts',postsRoute);
 app.use('/clientes',clientesRoute);
+app.use('/usuarios',UsuariosRoute);
+app.use('/prestamos',PrestamosRoute);
 //Connect to DB
 mongoose.connect(
 process.env.DB_CONNECTION,
