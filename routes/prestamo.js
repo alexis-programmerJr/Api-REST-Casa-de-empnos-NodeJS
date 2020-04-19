@@ -15,7 +15,7 @@ router.post('/', (req,res)=> {
         folio: req.body.folio,
         tipo: req.body.tipo,
         estatus: req.body.estatus,
-        nombre_cliente: req.body.nombre_cliente,
+        id_cliente: req.body.nombre_cliente,
         descripcion: req.body.descripcion
     });
     prestamo.save()
@@ -59,9 +59,6 @@ router.patch('/:prestamoId', async (req,res)=>{
         const updatePrestamo = await Prestamo.updateOne(
             {_id:req.params.prestamoId}
             ,{$set:{
-            folio:req.body.folio,
-            tipo:req.body.Tipo,
-            nombre_cliente:req.body.numero_telefono,
             estatus:req.body.direccion,
             descripcion:req.body.descripcion
             }}

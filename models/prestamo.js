@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
 const PrestamoSchema = mongoose.Schema({
-    Folio: {
+    folio: {
         type: Number,
         requiere: true
     },
-    Tipo:{
+    tipo:{
         type: String,
         requiere:true
     },
     descripcion:{
         type:String
     },
-    nombre_cliente:{
+    id_cliente:{
         type:String,
         requiere:true
     },
