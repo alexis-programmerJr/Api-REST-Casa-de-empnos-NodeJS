@@ -15,8 +15,9 @@ router.post('/', (req,res)=> {
         folio: req.body.folio,
         tipo: req.body.tipo,
         estatus: req.body.estatus,
-        id_cliente: req.body.nombre_cliente,
-        descripcion: req.body.descripcion
+        id_cliente: req.body.id_cliente,
+        descripcion: req.body.descripcion,
+        estatus: 'Activo'
     });
     prestamo.save()
     .then(data=>{

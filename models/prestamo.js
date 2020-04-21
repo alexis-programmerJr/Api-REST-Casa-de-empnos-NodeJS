@@ -17,8 +17,8 @@ const PrestamoSchema = mongoose.Schema({
         requiere:true
     },
     estatus:{
-        type:String,
-        default:"Activo"
+        type:Boolean,
+        default:true
     },
     date: {
         type: Date,

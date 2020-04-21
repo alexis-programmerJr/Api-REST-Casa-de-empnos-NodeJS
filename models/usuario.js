@@ -8,8 +8,14 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
     },
     tipo:{
-        type:String,
-        requiere:true
+        type:String
+    },
+    estatus:{
+        type:Boolean,
+        default:true
+    },
+    correo:{
+        type:String
     },
     date: {
         type: Date,

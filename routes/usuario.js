@@ -34,7 +34,7 @@ router.get('/:usuarioNombre', async (req,res)=>{
     }
 });
 //SPECIFIC POST
-router.get('/:usuarioId', async (req,res)=>{
+router.get('/usuId/:usuarioId', async (req,res)=>{
     try{
         const usuario = await Usuario.findById(req.params.usuarioId);
         res.json(usuario);
